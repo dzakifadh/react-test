@@ -11,7 +11,7 @@ function App() {
 	const [perPage, setPerPage] = useState(20)
 
 	const setModal = (id) => {
-		const detailData = collection.filter((item) => item.id == id)
+		const detailData = collection.filter((item) => item.id === id)
 		getDetail(detailData)
 		setIsModalShow(!isModalShow)
 	}
