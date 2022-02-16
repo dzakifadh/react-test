@@ -11,7 +11,8 @@ function App() {
 	const [perPage, setPerPage] = useState(20)
 
 	const setModal = (id) => {
-		getDetailData(id)
+		const detailData = collection.filter((item) => item.id == id)
+		getDetail(detailData)
 		setIsModalShow(!isModalShow)
 	}
 
@@ -23,12 +24,6 @@ function App() {
 		}
 		getAllData()
 	}, [type, perPage])
-
-	const getDetailData = async (id) => {
-		const detailPixabyData = await fetch(`https://pixabay.com/api/?key=${KEY_API}&q=${encodeURIComponent(type || "yellow flower")}&image_type=photo&pretty=true&id=${id}`)
-		const detailPixabyDataResult = await detailPixabyData.json()
-		getDetail(detailPixabyDataResult.hits)
-	}
 
 	useEffect(() => {}, [isModalShow])
 
