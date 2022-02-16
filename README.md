@@ -16,6 +16,14 @@ Rules
 - [x] Use Javascript ( no typescript )
 - [x] Use Tailwind
 
+Some features that may improve user experience to this react application
+
+- Image scaling when hover inside container
+- Showing modal contain detail information when image is clicking
+- Loading more features to show more images
+- Show not found message if user search something not found at pixaby database
+- Replacing avatar if not found with image placeholder, try image in 7 order
+
 ## How to release
 
 Please create a public github project with this small React JS Project and share the link with me !
