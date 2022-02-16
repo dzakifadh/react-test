@@ -1,5 +1,7 @@
 # React Test
 
+This repository is documenting about react test
+
 ## Scope
 
 Create a simple/small image search engine connected to the pixabay api in ReactJS with this Mockup ( it’s a mockup, feel free to do your own UX/UI ):
@@ -18,4 +20,4 @@ Rules
 
 Please create a public github project with this small React JS Project and share the link with me !
 
-## Please let me know if there any better approaches for this case, thanks
+Please let me know if there any better approaches for this case, thanks
