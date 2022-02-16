@@ -25,7 +25,9 @@ function App() {
 		getAllData()
 	}, [type, perPage])
 
-	useEffect(() => {}, [isModalShow])
+	useEffect(() => {
+		isModalShow ? (document.body.style.overflowY = "hidden") : (document.body.style.overflowY = "scroll")
+	}, [isModalShow])
 
 	return (
 		<div className="relative">
@@ -51,13 +53,14 @@ function App() {
 			</div>
 
 			<div className={`fixed inset-0 flex items-center justify-center ${isModalShow ? "opacity-1 z-10 visible" : "opacity-0 -z-10 invisible"} bg-opacity-50 bg-slate-900 duration-200`}>
-				<div className={`relative w-2/4 p-6 bg-white rounded text-slate-900 duration-500 ${isModalShow ? "translate-y-0 visible" : "translate-y-20 invisible"}`}>
+				<div className={`relative overflow-auto rounded-none h-5/6 w-3/4 p-6 bg-white text-slate-900 duration-500 ${isModalShow ? "translate-y-0 visible" : "translate-y-20 invisible"}`}>
 					<span className="absolute top-6 right-6 hover:cursor-pointer" onClick={() => setIsModalShow(false)}>
 						<svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
 						</svg>
 					</span>
 					<h2 className="mb-6 text-2xl font-medium">Detail data</h2>
+					<img src={detail.map((item) => item.largeImageURL)} alt={`Cover`} className="w-full mb-4" />
 					<ul className="grid grid-cols-3 gap-4">
 						{detail.map((item, index) => (
 							<Fragment key={index}>
