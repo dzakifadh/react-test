@@ -48,9 +48,11 @@ function App() {
 						  ))
 						: " So sory, we cannot find what did you search :("}
 				</div>
-				<button type="button" className="px-8 py-3 text-white rounded bg-slate-700" onClick={() => setPerPage((prev) => prev + 10)}>
-					Load More
-				</button>
+				{collection.length !== 0 && (
+					<button type="button" className="px-8 py-3 text-white rounded bg-slate-700" onClick={() => setPerPage((prev) => prev + 10)}>
+						Load More
+					</button>
+				)}
 			</div>
 
 			<div className={`fixed inset-0 flex items-center justify-center ${isModalShow ? "opacity-1 z-10 visible" : "opacity-0 -z-10 invisible"} bg-opacity-50 bg-slate-900 duration-200`}>
