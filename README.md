@@ -19,6 +19,7 @@ Rules
 Some features that may improve user experience to this react application
 
 - Image scaling when hover inside container
+- Responsive well
 - Showing modal contain detail information when image is clicking
 - Loading more features to show more images
 - Show not found message if user search something not found at pixaby database
