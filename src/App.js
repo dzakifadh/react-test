@@ -4,15 +4,15 @@ import "./App.css"
 function App() {
 	const KEY_API = "25721109-43fefb31d736bd126016752a5"
 
-	const [collection, getCollection] = useState([])
-	const [detail, getDetail] = useState([])
-	const [type, getType] = useState()
+	const [collection, setCollection] = useState([])
+	const [detail, setDetail] = useState([])
+	const [type, setType] = useState()
 	const [isModalShow, setIsModalShow] = useState(false)
 	const [perPage, setPerPage] = useState(20)
 
 	const setModal = (id) => {
 		const detailData = collection.filter((item) => item.id === id)
-		getDetail(detailData)
+		setDetail(detailData)
 		setIsModalShow(!isModalShow)
 	}
 
@@ -20,7 +20,7 @@ function App() {
 		const getAllData = async () => {
 			const allPixabyDataResultData = await fetch(`https://pixabay.com/api/?key=${KEY_API}&q=${encodeURIComponent(type || "yellow flower")}&image_type=photo&pretty=true&per_page=${perPage}`)
 			const allPixabyDataResult = await allPixabyDataResultData.json()
-			getCollection(allPixabyDataResult.hits)
+			setCollection(allPixabyDataResult.hits)
 		}
 		getAllData()
 	}, [type, perPage])
@@ -34,7 +34,7 @@ function App() {
 			<div className="flex flex-col items-center justify-center mb-10">
 				<div className="flex flex-col items-center my-4">
 					<label className="mb-4 text-3xl font-semibold">PIXABY</label>
-					<input type="text" value={type} className="px-4 py-2 border-2 rounded" placeholder="Search Here ..." onChange={(e) => getType(e.target.value)} />
+					<input type="text" className="px-4 py-2 border-2 rounded" placeholder="Search Here ..." onKeyUp={(e) => setType(e.target.value)} />
 				</div>
 				<div className="grid flex-wrap justify-center grid-cols-2 gap-2 mx-2 my-4 sm:m-4 sm:gap-4 md:m-10 sm:flex">
 					{collection.length > 0 ? (
